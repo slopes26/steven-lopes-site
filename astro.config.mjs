@@ -7,4 +7,14 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
 	site: 'https://example.com',
 	integrations: [mdx(), sitemap()],
+	vite: {
+		build: {
+			rollupOptions: {
+				input: {
+					main: './src/pages/index.astro',
+					styles: './src/styles/global.css', // Ensure this is part of the build
+				},
+			},
+		},
+	},
 });
